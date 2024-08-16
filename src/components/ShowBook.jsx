@@ -13,7 +13,7 @@ const ShowBook = () => {
     const fetchBook = async () => {
       try {
         // const response = await axios.get(`https://satudaybackend.onrender.com/api/books/${id}`);
-        const response = await axios.get(`http://localhost:5000/book/${id}`);
+        const response = await axios.get(`https://final338-backend.onrender.com/api/v1/book/${id}`);
         setBook(response.data);
       } catch (error) {
         console.error('Error fetching the book data:', error);
