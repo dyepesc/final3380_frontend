@@ -20,7 +20,7 @@ function AddBook() {
     };
 
     axios
-      .post('http://localhost:5000/api/v1/book', newBook)
+      .post('https://final338-backend.onrender.com/api/v1/book', newBook)
       .then((res) => {
         console.log(res.data);
         navigate('/'); // Redirect to the book list page after successful submission
