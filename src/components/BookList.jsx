@@ -11,7 +11,7 @@ function BookList() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/api/v1/book')
+      .get('https://final338-backend.onrender.com/api/v1/book')
     
       .then((res) => {
         setBooks(res.data);
