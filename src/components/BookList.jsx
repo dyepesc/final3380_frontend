@@ -23,7 +23,7 @@ function BookList() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://final338-backend.onrender.com/api/v1/book${id}`);
+      await axios.delete(`https://final338-backend.onrender.com/api/v1/book/${id}`);
       setBooks(books.filter((book) => book._id !== id));
     } catch (error) {
       console.error("Error deleting book:", error);
