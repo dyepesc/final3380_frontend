@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import './DeleteBook';
+import DeleteBook from './DeleteBook';
 // import './BookList.css';
 import '../App.css'; 
 
-function BookCard({ book, deleteBookHandler }) {
+function BookCard({ book, onDelete }) {
   
   return (
     <div className="card-container">
@@ -14,20 +14,16 @@ function BookCard({ book, deleteBookHandler }) {
         height="200"
       />
       <div className="desc">
-      {/* <button onClick={() => props.deleteBook(id)}>X</button> */}
-      
-      {/* <button className="deleteBook" onClick={() => deleteBookHandler()} p-6> */}
-            {/* X
-          </button> */}
+              
         <h2>
           <Link to={`/show-book/${book._id}`}>{book.title}</Link>
         </h2>
         <h3>{book.author}</h3>
         <p>{book.description}</p>
-        {/* <button onClick={() => deleteBookHandler(book._id)}>X</button> */}
+      
         
-        {/* onDelete={handleDeleteCard} */}
       </div>
+      <button onClick={() => onDelete(book._id)}>X</button>                               
     </div>
   );
 }
