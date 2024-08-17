@@ -21,10 +21,19 @@ function BookList() {
       });
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`https://final338-backend.onrender.com/api/v1/book${id}`);
+      setBooks(books.filter((book) => book._id !== id));
+    } catch (error) {
+      console.error("Error deleting book:", error);
+    }
+  };
+
   const bookList =
     books.length === 0
       ? 'You don\'t have books on the list!'
-      : books.map((book, k) => <BookCard book={book} key={k} />);
+      : books.map((book) => <BookCard book={book} key={book._id} onDelete={handleDelete} />);
 
   return (
     <>
@@ -46,11 +55,13 @@ function BookList() {
                     <br />
                     <hr />
                 </div>
+                
             </div>
 
             <div className='list'>{bookList}</div>
             </div>
         </div>
+     
     </>
     
   )
